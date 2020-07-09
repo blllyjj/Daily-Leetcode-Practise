@@ -23,6 +23,45 @@
  *     }
  * }
  */
+ 
+ //-------------Different Approach---------------------------////
+ // class Solution {
+    
+//     public TreeNode sortedListToBST(ListNode head) {
+//         if(head==null) return null;
+//         if(head.next==null){
+//             return new TreeNode(head.val);
+//         }
+        
+//         ListNode Mid=head;
+//         ListNode fast=head;
+//         ListNode preMid=null;
+        
+//         while(fast!=null && fast.next!=null){
+//             fast=fast.next.next;
+//             preMid=Mid;
+//             Mid=Mid.next;
+//         }//for the last case: if this loop is skipped then preMid will remain unchanged
+//          //that is preMid will remain preMid=null
+        
+//         if(preMid!=null){
+//             preMid.next=null;
+//         }
+        
+//         TreeNode node = new TreeNode(Mid.val);
+        
+//         node.left=sortedListToBST(head);
+//         node.right=sortedListToBST(Mid.next);
+        
+//         return node;
+//     }
+    
+    
+// }
+
+ //-------------Different Approach---------------------------////
+ 
+ 
 class Solution {
     public TreeNode sortedListToBST(ListNode head) {
         if(head==null) return null;
