@@ -1,0 +1,24 @@
+class Solution {
+    public int search(int[] nums, int target) {
+        return recursiveSearch(nums, 0, nums.length, target);
+    }
+    
+    public int recursiveSearch(int[] arr, int start, int end, int target){
+        int mid = (start+end)/2;
+        if(end<start){
+            return -1;
+        }
+        if(arr[mid]==target){
+            return mid;
+        }
+        else if(arr[mid]>target){
+            return recursiveSearch(arr,start,mid,target);
+        }else{
+            return recursiveSearch(arr,mid+1,end, target);
+        }
+
+    }
+}
+
+// 0 1 2 3 4 5  length = 6
+
