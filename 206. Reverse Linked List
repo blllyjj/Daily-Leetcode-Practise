@@ -8,6 +8,8 @@
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
+ 
+ //----------------Iterative Approach---------------///
 class Solution {
     public ListNode reverseList(ListNode head) {
         ListNode curr=head;
@@ -24,3 +26,24 @@ class Solution {
         return prev;
     }
 }
+
+
+
+
+//----------------Recursive Approach--------------------////
+class Solution {
+//     public ListNode reverseList(ListNode head) {
+//         if(head==null || head.next==null){
+//             return head;
+//         }
+//         ListNode reversedList = reverseList(head.next); //this will return the last head node
+//                                                         //this next recusion will again return the last head node
+//         //then once i have got my reversed list
+//         //i have to add myself in and reverse myself
+//         head.next.next=head;
+//         head.next=null;      //point the current next node to null at the end
+        
+//         return reversedList; //return the head node in reversed order 
+        
+//     }
+// }
