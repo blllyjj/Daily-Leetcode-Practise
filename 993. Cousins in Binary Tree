@@ -1,0 +1,40 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public boolean isCousins(TreeNode root, int x, int y) {
+        return checkDepth(root,x,1)==checkDepth(root,y,1)&&!checkSibling(root,x,y);
+    }
+    
+    //Helper Method: boolean checkSibling(TreeNode root, int x, int y){}   to check if the entered numbers are siblings in the binary tree
+    //Helper Method: int checkDepth(TreeNode root, int height, int value){}     return integer number of the depth level of each number
+    public boolean checkSibling(TreeNode root, int x, int y){
+        if(root==null) return false;
+        boolean check = false;
+        if(root.left!=null && root.right!=null){
+            check=(root.left.val==x&&root.right.val==y)||(root.left.val==y&&root.right.val==x);
+        }
+        return check||checkSibling(root.left,x,y)||checkSibling(root.right,x,y);
+    }
+    
+    public int checkDepth(TreeNode root, int value, int height){
+        //return the depth level of the value
+        if(root == null) return 0; //if the next node is null OR we searched till the end and we found the last node to be node aka we found nothing
+        if(root.val == value) return height;
+        
+        return checkDepth(root.left, value, height+1)|checkDepth(root.right,value,height+1);
+    }
+    
+}
